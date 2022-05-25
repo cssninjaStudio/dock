@@ -1,0 +1,40 @@
+<nav
+  class="menu-sidebar"
+  x-data="initSidebarLeft()"
+  x-init="$store.app.sidebarOpenedState = false"
+  :class="{
+        '': $store.app.sidebarOpenedState,
+        'is-sidebar-fold': !$store.app.sidebarOpenedState,
+        'is-menu-sidebar-translated-mobile': $store.app.isSidebarOpenedMobile,
+    }"
+>
+  <div class="menu-sidebar-inner">
+    <!-- Child menu header -->
+    <ul>
+      <li class="child-header">
+        <h2 class="sidebar-title">Altitude</h2>
+        <a
+          href="javascript:void(0);"
+          class="menu-arrow"
+          @click="closeSidebar()"
+        >
+          <i class="iconify" data-icon="feather:arrow-left"></i>
+        </a>
+      </li>
+    </ul>
+
+    <!--Sidebar Menu Panel-->
+    {{> sidebar-menu-1}}
+
+    <!--Sidebar Menu Panel-->
+    {{> sidebar-menu-2}}
+
+    <!--Sidebar Menu Panel-->
+    {{> sidebar-menu-3}}
+
+    <!--Sidebar Menu Panel-->
+    {{> sidebar-menu-4}}
+  </div>
+</nav>
+
+
