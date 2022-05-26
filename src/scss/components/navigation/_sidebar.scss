@@ -16,7 +16,7 @@ $sidebar-footer-height: 64px;
 .sidebar {
   position: fixed;
   top: 0;
-  left: 0;
+  #{$start-direction}: 0;
   height: 100%;
   width: 280px;
   overflow: hidden;
@@ -31,9 +31,9 @@ $sidebar-footer-height: 64px;
     overflow: hidden;
     position: absolute;
     top: 0;
-    right: 0;
+    #{$end-direction}: 0;
     bottom: 0;
-    left: 0;
+    #{$start-direction}: 0;
     opacity: 0.2;
     z-index: 1;
     display: none;
@@ -167,7 +167,7 @@ $sidebar-footer-height: 64px;
           min-width: 36px;
           height: 36px;
           line-height: 36px;
-          margin-right: 10px;
+          margin-#{$end-direction}: 10px;
           border-radius: 2px;
           transition: color 0.3s;
 
@@ -177,7 +177,7 @@ $sidebar-footer-height: 64px;
         }
 
         .menu-chevron {
-          margin-left: auto;
+          margin-#{$start-direction}: auto;
           transition: transform 0.3s;
 
           .iconify {
@@ -209,7 +209,7 @@ $sidebar-footer-height: 64px;
         position: relative;
 
         .sub-menu-list {
-          padding-left: 1.25rem;
+          padding-#{$start-direction}: 1.25rem;
           padding-top: 0.75rem;
           padding-bottom: 0.75rem;
 
@@ -217,8 +217,8 @@ $sidebar-footer-height: 64px;
             a {
               position: relative;
               height: 40px;
-              margin-right: 1.5rem;
-              border-right: 3px solid var(--primary-dark-24);
+              margin-#{$end-direction}: 1.5rem;
+              border-#{$end-direction}: 3px solid var(--primary-dark-24);
 
               .menu-title {
                 font-size: 0.85rem;
@@ -231,7 +231,7 @@ $sidebar-footer-height: 64px;
                   content: "";
                   position: absolute;
                   top: 0;
-                  right: -3px;
+                  #{$end-direction}: -3px;
                   height: 100%;
                   width: 4px;
                   background: var(--primary-light-10);
@@ -315,7 +315,7 @@ Responsive
 
 @media (max-width: 767px) {
   .sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% * #{$transform-direction}));
 
     .sidebar-layout {
       .sidebar-header {
@@ -337,7 +337,7 @@ Responsive
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% * #{$transform-direction}));
 
     .sidebar-layout {
       .sidebar-header {
@@ -359,7 +359,7 @@ Responsive
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .sidebar {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% * #{$transform-direction}));
 
     .sidebar-layout {
       .sidebar-header {

@@ -1,10 +1,7 @@
 import { initTheme } from './theme/theme';
 import { initNavbar } from './navbar/navbar';
-import { initSidebar, initSidebarLeft, initCollapseSidebar } from './sidebar/sidebar';
-//import { initBackToTop } from './backtotop/backtotop';
-
-//Accordions
-//import { initAccordion } from './accordion/accordion';
+import { initCollapseSidebar } from './sidebar/sidebar';
+import { initBackToTop } from './backtotop/backtotop';
 
 //Dropdown
 import { initDropdown } from './dropdown/dropdown';
@@ -14,13 +11,8 @@ import { initDatatable } from './datatable/datatable';
 
 window.initTheme = initTheme;
 window.initNavbar = initNavbar;
-window.initSidebar = initSidebar;
-window.initSidebarLeft = initSidebarLeft;
 window.initCollapseSidebar = initCollapseSidebar;
-//window.initBackToTop = initBackToTop;
-
-//Accordions
-//window.initAccordion = initAccordion;
+window.initBackToTop = initBackToTop;
 
 //Dropdown
 window.initDropdown = initDropdown;

@@ -22,7 +22,7 @@ Main wrapper
 
   &.is-expanded {
     width: 100%;
-    margin-left: 0;
+    margin-#{$start-direction}: 0;
   }
 
   .wrapper-inner {
@@ -66,7 +66,7 @@ Main wrapper
   .dock-wrapper {
     width: 100% !important;
     margin: 0 !important;
-    padding: 0 1rem !important;
+    padding: 4rem 1rem 5rem 1rem !important;
   }
 }
 
@@ -87,11 +87,11 @@ Main wrapper
 @media only screen and (min-width: 1600px) {
   .dock-wrapper {
     width: calc(100% - 620px);
-    margin-right: 340px;
+    margin-#{$end-direction}: 340px;
 
     &.is-collapsed {
       width: calc(100% - 420px);
-      margin-right: 340px;
+      margin-#{$end-direction}: 340px;
     }
   }
 }
