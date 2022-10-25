@@ -1,23 +1,22 @@
 version: '3.7'
 
 services:
-  altitude-demo:
-    build:
-      context: .
+  dock-demo:
+    image: digisquad/cssninja.dock-demo:latest
     networks:
       - cssninja-services
-    restart: '${MOEBIUS_DEMO_RESTART:-no}'
+    restart: 'unless-stopped'
     labels:
       traefik.enable: true
       traefik.docker.network: 'cssninja-services'
-      traefik.http.routers.altitude-demo.entrypoints: 'http'
-      traefik.http.routers.altitude-demo.rule: 'Host(`altitude.${HOST:-127.0.0.1.nip.io}`)'
-      traefik.http.routers.altitude-demo.middlewares: 'https-redirect@file'
-      traefik.http.services.altitude-demo-https.loadbalancer.server.port: 8080
-      traefik.http.routers.altitude-demo-https.rule: 'Host(`altitude.${HOST:-127.0.0.1.nip.io}`)'
-      traefik.http.routers.altitude-demo-https.tls: true
-      traefik.http.routers.altitude-demo-https.entrypoints: 'https'
-      traefik.http.routers.altitude-demo-https.tls.certresolver: 'http'
+      traefik.http.routers.dock-demo.entrypoints: 'http'
+      traefik.http.routers.dock-demo.rule: 'Host(`dock.${HOST:-127.0.0.1.nip.io}`)'
+      traefik.http.routers.dock-demo.middlewares: 'https-redirect@file'
+      traefik.http.services.dock-demo-https.loadbalancer.server.port: 8080
+      traefik.http.routers.dock-demo-https.rule: 'Host(`dock.${HOST:-127.0.0.1.nip.io}`)'
+      traefik.http.routers.dock-demo-https.tls: true
+      traefik.http.routers.dock-demo-https.entrypoints: 'https'
+      traefik.http.routers.dock-demo-https.tls.certresolver: 'http'
 
 networks:
   cssninja-services:
