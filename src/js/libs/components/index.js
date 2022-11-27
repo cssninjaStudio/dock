@@ -3,6 +3,9 @@ import { initNavbar } from './navbar/navbar';
 import { initCollapseSidebar } from './sidebar/sidebar';
 import { initBackToTop } from './backtotop/backtotop';
 
+//Accordion
+import { initAccordion } from './accordion/accordion';
+
 //Dropdown
 import { initDropdown } from './dropdown/dropdown';
 
@@ -13,6 +16,9 @@ window.initTheme = initTheme;
 window.initNavbar = initNavbar;
 window.initCollapseSidebar = initCollapseSidebar;
 window.initBackToTop = initBackToTop;
+
+//Accordion
+window.initAccordion = initAccordion
 
 //Dropdown
 window.initDropdown = initDropdown;
