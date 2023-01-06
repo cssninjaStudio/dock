@@ -1,0 +1,516 @@
+<div
+  x-data="initSidebar()"
+  class="sidebar break-point-lg has-bg-image"
+  :class="{
+  'is-collapsed': $store.app.isSidebarCollapsed,
+  '': !$store.app.isSidebarCollapsed,
+  'is-translated-mobile': $store.app.isSidebarOpenedMobile,
+}"
+>
+  <div class="image-wrapper">
+    <img
+      src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
+      alt="sidebar background"
+    />
+  </div>
+  <div class="sidebar-layout">
+    <!--Header-->
+    <div class="sidebar-header">
+      <img
+        class="sidebar-logo"
+        src="/img/logo/dock-text-inverted.svg"
+        alt="sidebar logo"
+      />
+      <a class="close" @click="collapseSidebarToggle()">
+        <i class="iconify" data-icon="feather:arrow-left"></i>
+      </a>
+      <a class="close-mobile" @click="$store.app.isSidebarOpenedMobile = false">
+        <i class="iconify" data-icon="feather:arrow-left"></i>
+      </a>
+    </div>
+    <!--Menu-->
+    <div class="sidebar-content has-slimscroll">
+      <nav class="menu open-current-submenu">
+        <ul>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'dashboard-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('dashboard-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:grid-four-duotone"></i>
+              </span>
+              <span class="menu-title">Dashboards</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'dashboard-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/dashboard-ecommerce">
+                    <span class="menu-title">Ecommerce</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dashboard-domotic">
+                    <span class="menu-title">Domotic</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dashboard-support">
+                    <span class="menu-title">Support</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dashboard-hosting">
+                    <span class="menu-title">Hosting</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dashboard-elearning">
+                    <span class="menu-title">E-Learning</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dashboard-accounting">
+                    <span class="menu-title">Accounting</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'datatables-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('datatables-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:table-duotone"></i>
+              </span>
+              <span class="menu-title">Datatables</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'datatables-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-datatable">
+                    <span class="menu-title">Datatable</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'charts-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('charts-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:chart-pie-slice-duotone"></i>
+              </span>
+              <span class="menu-title">Charts</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'charts-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/charts-apex">
+                    <span class="menu-title">Apex Charts</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'auth-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('auth-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:lock-duotone"></i>
+              </span>
+              <span class="menu-title">Authentication</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'auth-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/auth-signup">
+                    <span class="menu-title">Signup</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/auth-login">
+                    <span class="menu-title">Sign In</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/auth-forgot">
+                    <span class="menu-title">Forgot Password</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'accounting-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('accounting-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:calculator-duotone"></i>
+              </span>
+              <span class="menu-title">Accounting</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'accounting-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-bills-list">
+                    <span class="menu-title">Bills List</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-bills-grid">
+                    <span class="menu-title">Bills Grid</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-invoices-list">
+                    <span class="menu-title">Invoices List</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-invoices-grid">
+                    <span class="menu-title">Invoices Grid</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-invoice">
+                    <span class="menu-title">Invoice</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'social-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('social-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:confetti-duotone"></i>
+              </span>
+              <span class="menu-title">Social</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'social-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-feed">
+                    <span class="menu-title">Social Feed</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-events">
+                    <span class="menu-title">Events</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'forum-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('forum-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:chat-circle-text-duotone"></i>
+              </span>
+              <span class="menu-title">Forum</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'forum-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-forum-index">
+                    <span class="menu-title">Forum Home</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-forum-channel">
+                    <span class="menu-title">Forum Channel</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-forum-topic">
+                    <span class="menu-title">Forum Topic</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'support-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('support-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:lifebuoy-duotone"></i>
+              </span>
+              <span class="menu-title">Support</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'support-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-support-ticket">
+                    <span class="menu-title">Ticket Details</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'projects-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('projects-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:projector-screen-chart-duotone"></i>
+              </span>
+              <span class="menu-title">Projects</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'projects-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-project-list">
+                    <span class="menu-title">Project List</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-project-grid">
+                    <span class="menu-title">Project Grid</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-project">
+                    <span class="menu-title">Project Details</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'crm-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('crm-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:crown-duotone"></i>
+              </span>
+              <span class="menu-title">CRM</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'crm-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-crm-segments">
+                    <span class="menu-title">Segments</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-crm-board">
+                    <span class="menu-title">Kanban Board</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-crm-deal">
+                    <span class="menu-title">Deal Details</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'contacts-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('contacts-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:users-four-duotone"></i>
+              </span>
+              <span class="menu-title">Contacts</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'contacts-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-contact-list">
+                    <span class="menu-title">Contact List</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-contact-grid">
+                    <span class="menu-title">Contact Grid</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-contact">
+                    <span class="menu-title">Contact Details</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'messages-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('messages-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:envelope-duotone"></i>
+              </span>
+              <span class="menu-title">Messages</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'messages-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-inbox">
+                    <span class="menu-title">Message Inbox</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'forms-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('forms-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:keyboard-duotone"></i>
+              </span>
+              <span class="menu-title">Forms</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'forms-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-form-1">
+                    <span class="menu-title">Horizontal Form</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/content-form-2">
+                    <span class="menu-title">Vertical Form</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Menu item-->
+          <li class="menu-item sub-menu" :class="{
+            'active': $store.app.activeSidebarMenu === 'empty-menu'
+          }">
+            <a href="#" @click.prevent="openSidebarMenu('empty-menu'), collapseSidebarOpen()">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:selection-duotone"></i>
+              </span>
+              <span class="menu-title">Empty States</span>
+              <span class="menu-chevron">
+                <i class="iconify" data-icon="feather:chevron-down"></i>
+              </span>
+            </a>
+            <!--Submenu-->
+            <div class="sub-menu-list" x-show="$store.app.activeSidebarMenu === 'empty-menu'"
+            x-collapse>
+              <ul>
+                <li class="menu-item">
+                  <a href="/content-placeholder">
+                    <span class="menu-title">Placeholder</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/404">
+                    <span class="menu-title">Error 404</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Single Item-->
+          <li class="menu-item">
+            <a href="/elements">
+              <span class="sidebar-menu-icon">
+                <i class="iconify" data-icon="ph:drop-duotone"></i>
+              </span>
+              <span class="menu-title">UI Elements</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-footer">
+      <a href="#" class="footer-account">
+        <span class="avatar is-xxs is-reset mask mask-blob">
+          <img src="/img/avatars/29.jpg" alt="" />
+        </span>
+        <span class="username">Christina Chu</span>
+      </a>
+    </div>
+  </div>
+</div>

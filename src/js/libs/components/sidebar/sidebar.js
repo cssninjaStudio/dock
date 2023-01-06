@@ -1,4 +1,4 @@
-export function initCollapseSidebar() {
+export function initSidebar() {
   return {
     init() {
       let location = window.location.href;

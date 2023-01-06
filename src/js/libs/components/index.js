@@ -1,24 +1,24 @@
-import { initTheme } from './theme/theme';
-import { initNavbar } from './navbar/navbar';
-import { initCollapseSidebar } from './sidebar/sidebar';
-import { initBackToTop } from './backtotop/backtotop';
+import { initTheme } from "./theme/theme";
+import { initNavbar } from "./navbar/navbar";
+import { initSidebar } from "./sidebar/sidebar";
+import { initBackToTop } from "./backtotop/backtotop";
 
 //Accordion
-import { initAccordion } from './accordion/accordion';
+import { initAccordion } from './accordion/accordion'
 
 //Dropdown
-import { initDropdown } from './dropdown/dropdown';
+import { initDropdown } from "./dropdown/dropdown";
 
 //Datatable
-import { initDatatable } from './datatable/datatable';
+import { initDatatable } from "./datatable/datatable";
 
 window.initTheme = initTheme;
 window.initNavbar = initNavbar;
-window.initCollapseSidebar = initCollapseSidebar;
+window.initSidebar = initSidebar;
 window.initBackToTop = initBackToTop;
 
 //Accordion
-window.initAccordion = initAccordion
+window.initAccordion = initAccordion;
 
 //Dropdown
 window.initDropdown = initDropdown;
