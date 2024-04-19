@@ -35,7 +35,7 @@
           .conversation-box {
             position: relative;
             width: 100%;
-            background: var(--wrap-muted-color);
+            background: var(--panel-bg-color);
             border: 1px solid var(--wrap-border-color);
             border-radius: 0.65rem;
             margin-#{$end-direction}: 1.25rem;

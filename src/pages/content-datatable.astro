@@ -13,7 +13,7 @@ const title = 'Datatable'
       </div>
       <div class="toolbar-end">
         <button class="button is-primary is-long-2 raised">
-          <i class="iconify mr-2" data-icon="feather:plus"></i>
+          <iconify-icon class="iconify mr-2" icon="lucide:plus"></iconify-icon>
           <span>New Entry</span>
         </button>
       </div>
@@ -44,7 +44,7 @@ const title = 'Datatable'
         <div>
           <div class="control has-icon">
             <div class="form-icon">
-              <i class="iconify" data-icon="feather:search"></i>
+              <iconify-icon class="iconify" icon="lucide:search"></iconify-icon>
             </div>
             <input x-model="searchInput" type="text" class="input" placeholder="Search...">
           </div>
@@ -159,7 +159,7 @@ const title = 'Datatable'
         </div>
         <div class="table-pagination-group is-end">
           <button class="table-pagination-button" @click="changePage(currentPage - 1)">
-            <i class="iconify" data-icon="feather:chevron-left"></i>
+            <iconify-icon class="iconify" icon="lucide:chevron-left"></iconify-icon>
           </button>
           <template x-for="item in pages">
             <button @click="changePage(item)" class="table-pagination-button" x-bind:class="{ 'is-active': currentPage === item }">
@@ -167,7 +167,7 @@ const title = 'Datatable'
             </button>
           </template>
           <button class="table-pagination-button" @click="changePage(currentPage + 1)">
-            <i class="iconify" data-icon="feather:chevron-right"></i>
+            <iconify-icon class="iconify" icon="lucide:chevron-right"></iconify-icon>
           </button>
         </div>
       </div>

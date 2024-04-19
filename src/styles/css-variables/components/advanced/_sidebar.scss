@@ -12,6 +12,7 @@
   --quickview-bg-color: var(--white);
   --quickview-border-color: var(--border);
   --quickview-list-item-bg-hover: var(--widget-grey);
+  --panel-bg-color: #E8EDF5;
 }
 
 .is-dark {
@@ -25,4 +26,5 @@
   --quickview-bg-color: var(--night-light-6);
   --quickview-border-color: var(--night-dark-16);
   --quickview-list-item-bg-hover: var(--night-light-12);
+  --panel-bg-color: var(--night-dark-2);
 }

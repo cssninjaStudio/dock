@@ -2,10 +2,8 @@
 1. Base Resets
 ========================================================================== */
 
-:root {
-  &.is-dark {
-    color-scheme: dark;
-  }
+.is-dark {
+  color-scheme: dark;
 }
 
 body {

@@ -13,7 +13,8 @@
       line-height: 1;
       padding: 0 6px;
       font-family: var(--font-alt);
-      font-weight: 700;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
     }
 
     .project-tagline {
@@ -72,7 +73,7 @@
   }
 
   &:hover {
-    background: var(--secondary);
+    background: var(--primary);
 
     .iconify {
       color: var(--white);

@@ -66,8 +66,8 @@
         display: block;
         position: absolute;
         content: "";
-        top: 9px;
-        #{$start-direction}: 5px;
+        top: 10px;
+        #{$start-direction}: 6px;
         width: 10px;
         height: 2px;
         background: currentColor;
@@ -77,8 +77,8 @@
         display: block;
         position: absolute;
         content: "";
-        top: 5px;
-        #{$start-direction}: 9px;
+        top: 6px;
+        #{$start-direction}: 10px;
         width: 2px;
         height: 10px;
         background: currentColor;
