@@ -22,7 +22,7 @@
 
     ~ .icon,
     .form-icon {
-      color: var(--secondary) !important;
+      color: var(--primary) !important;
     }
   }
 
@@ -211,12 +211,12 @@
 
       &:focus {
         ~ .form-icon {
-          color: var(--secondary) !important;
+          color: var(--primary) !important;
 
           svg,
           .iconify {
-            stroke: var(--secondary);
-            color: var(--secondary) !important;
+            stroke: var(--primary);
+            color: var(--primary) !important;
           }
         }
       }
