@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/cssninjaStudio/dock/compare/v2.2.0...v2.3.0) (2026-09-30)
+
+
+### ⚖️ License
+
+* relicense under MIT ([c2a413b](https://github.com/cssninjaStudio/dock/commit/c2a413b4e6f47c2c358e0fe23fb37f006df5e8cf))
+
 ## [2.2.0](https://github.com/cssninjaStudio/dock/compare/v2.1.1...v2.2.0) (2024-04-19)
 
 ### [2.1.1](https://github.com/cssninjaStudio/dock/compare/v2.1.0...v2.1.1) (2023-05-03)
